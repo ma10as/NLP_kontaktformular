@@ -1,0 +1,65 @@
+<notifications-bar class="notifications"></notifications-bar>
+<form name="contactForm" ng-submit="register(form)">
+    <div class="row">
+        <div class="small-12">
+            <h1>Kontakt NLP kundeservice</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-6">
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Fornavn
+                        <input type="text" placeholder="Dit fornavn" ng-model="form.firstName" required>
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Efternavn
+                        <input type="text" placeholder="Dit efternavn" ng-model="form.lastName" required>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>E-mail
+                        <input type="text" placeholder="Din e-mail" ng-model="form.mail" name="email" ng-pattern="/^.+@.+\..+$/" lowercase required>
+                        <div ng-messages="contactForm.email.$error" role="alert">
+                            <div class="error" ng-message="pattern">
+                                Dette er ikke en gyldig email
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Telefonnummer
+                        <input type="text" placeholder="Dit telefonnummer" ng-pattern="/^[0-9]{8,8}$/" ng-model="form.phone" name="phone" required>
+                        <div ng-messages="contactForm.phone.$error" role="alert">
+                            <div class="error" ng-message="pattern">
+                                Et telefonnummer skal bestå af 8 tal
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Emne
+                        <input type="text" placeholder="Emne for din besked" ng-model="form.subject" required>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Besked
+                        <textarea rows="6" placeholder="Din besked til NLP kundeservice" ng-model="form.message" required></textarea>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-6 column">
+                    <button ng-disabled="contactForm.$invalid" type="submit" class="button">Send besked</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

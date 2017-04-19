@@ -1,0 +1,38 @@
+dev:
+    - 'clean:development'
+    - 'copy:development'
+    - 'sass:development'
+    - 'autoprefixer:development'
+    - 'concat:core'
+    - 'concat:controller'
+    - 'clean:temp'
+    - 'open:development'
+    - 'concurrent:development'
+
+run:
+    - 'concurrent:development'
+
+debug:
+    - 'open:debug'
+    - 'concurrent:debug'
+
+debugbrk:
+    - 'open:debug'
+    - 'concurrent:debugbrk'
+
+build:
+    - 'clean:production'
+    - 'copy:production'
+    - 'imagemin:production'
+    - 'sass:production'
+    - 'autoprefixer:production'
+    - 'concat:production'
+    - 'uglify:production'
+    - 'clean:temp'
+
+optimize:
+    - 'imagemin:originals'
+    - 'watchDevelopment'
+
+default:
+    - 'build'
